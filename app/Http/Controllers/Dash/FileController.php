@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Stroage;
 
 
 class FileController extends Controller
@@ -46,14 +47,14 @@ class FileController extends Controller
     public function store(Request $request)
     {
         $max_sezi = (int)ini_get('upload_max_filesize') * 10240;
-        $files = $request->file('files');
+        $files = $request->file('file');
         $user_id = Auth::id();
-        if ($request->hasFile('files')) {
+        if ($request->hasFile('file')) {
             foreach ($files as $file) {
-                $fileName = Str::slug($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+                /* $fileName = Str::slug($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension(); */
                 if (Storage::putFileAs('/public/' . $user_id . '/', $file, $file->getClientOriginalName())) {
                     File::create([
-                        'url' => $fileName, 
+                        'url' => $file->getClientOriginalName(),
                         'user_id' => $user_id
                     ]);
                 }
@@ -75,6 +76,9 @@ class FileController extends Controller
     {
         $files = File::whereUserId(Auth::id())->latest()->get();
         return view('dash.show', compact('files'));
+        /* 
+        $files = File::orderBy('id', 'desc')->paginate();
+        return view('dash.show', compact('files')); */
     }
     public function mostrar($id)
     {
@@ -87,16 +91,16 @@ class FileController extends Controller
             return back();
         }
     }
-
     /**
      * Show the form for editing the specified resource.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(File $files)
+    public function edit(File $file)
     {
-        return view('dash.edit', compact('files'));
+        return view('dash.edit', compact('file'));
     }
 
     /**
@@ -106,8 +110,19 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, File $files)
+    public function update(Request $request, File $files ,$id)
     {
+        $files = File::whereId($id)->firstOrFail();
+        $files->url = $request->url;
+        $nuevo_nombre= Str::slug($request->url);
+        $files->url = $nuevo_nombre;
+        alert()->warning('Atencion', 'Editado');
+        return redirect()->route('dash.show', compact('files'));
+    }
+
+    public function descarga(Request $request, $files)
+    {
+        return response()->download(public_path('storage' . '/' . Auth::id() . '/' . $files->url));
     }
 
     /**
@@ -116,19 +131,19 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
-    {
+    public function destroy(Request $request, $id){
         $files = File::whereId($id)->firstOrFail();
         unlink(public_path('storage' . '/' . Auth::id() . '/' . $files->url));
         $files->delete();
         alert()->warning('Atencion', 'Se ha eliminado el archivo');
         return redirect()->route('dash.show');
     }
+
     public function imagenes()
     {
-        $db = new File();
-        $files = $db::all();
-
+        /* $files = File::all();
+        return view('user.carpetas.imagenes',compact('files')); */
+        $files = File::whereUserId(Auth::id())->latest()->get();
         return view('user.carpetas.imagenes', compact('files'));
     }
 }

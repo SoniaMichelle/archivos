@@ -33,6 +33,13 @@ Route::get('show', [FileController::class, 'show'])->name('dash.show');
 Route::get('ver', [FileController::class, 'mostrar'])->name('dash.mostrar');
 /* RUTA EDITAR */
 Route::get('editar/{file}/editar', [FileController::class, 'edit'])->name('dash.edit');
+
+Route::put('editar/{file}', [FileController::class, 'update'])->name('dash.update');
+
+
+Route::get('/dowload{$file}', [FileController::class, 'descarga'])->name('dash.descarga');
+
+
 /* METODO PARA ACTUALIZAR */
 Route::put('show/{file}', [FileController::class, 'update'])->name('dash.update');
 /* ELIMINAR */

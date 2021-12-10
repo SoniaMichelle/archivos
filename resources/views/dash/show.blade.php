@@ -14,8 +14,8 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Archivo</th>
-                                <th scope="col">Editar</th>
                                 <th scope="col">Mostrar</th>
+                                <th scope="col">Editar</th>
                                 <th scope="col">Descargar</th>
                                 <th scope="col">Borrar</th>
                             </tr>
@@ -27,21 +27,22 @@
                                 <td>{{$file->url}}</td>
                                 <td>
                                     <div class="but">
-                                        <a class="btn btn-sm btn-outline-info" href="{{route('dash.edit', $file)}}"><i class="fas fa-marker"></i></a>
+                                        <a class="btn btn-sm btn-outline-secondary" href="storage/{{Auth::id()}}/{{$file->url}}"><i class="fas fa-eye"></i>VER</a>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="but">
-                                        <a target="_blank" class="btn btn-sm btn-outline-secondary" href="storage/{{Auth::id()}}/{{$file->url}}"><i class="fas fa-eye"></i></a>
+                                        <a class="btn btn-sm btn-outline-info" href="{{route('dash.edit', $file->id)}}"><i class="fas fa-marker"></i>ACTUALIZAR</a>
+
                                     </div>
                                 </td>
                                 <td>
                                     <div class="but">
-                                        <a class="btn btn-sm btn-outline-warning" href=""><i class="fas fa-download"></i></a>
+                                        <a class="btn btn-sm btn-outline-warning" href="{{route('dash.descarga', $file->url)}}"><i class="fas fa-download"></i>Descargar</a>
                                     </div>
                                 </td>
                                 <td>
-                                    <form action="{{route('dash.destroy',$file->id)}}" method="POST">
+                                    <form action="{{route('dash.destroy', $file->id)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <div class="but">
