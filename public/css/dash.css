@@ -1,0 +1,106 @@
+
+a {
+    text-decoration: none;
+}
+
+.lista {
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.7);
+    margin: 1.5rem;
+    backdrop-filter: blur(.1rem);
+    border: .1rem solid rgba(148, 147, 147, 0.3);
+    color: #fff;
+}
+
+.titulo-lista {
+    font-size: 50px;
+    text-align: center;
+
+}
+
+.lista a {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.but {
+    align-items: center;
+    font-size: 16px;
+}
+
+/* FILE */
+.upload-box {
+    font-size: 16px;
+    background: white;
+    color: black;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.472);
+    width: 500px;
+    outline: none;
+}
+::-webkit-file-upload-button {
+    color: rgb(161, 161, 161);
+    background: #dddddd;
+    padding: 8px;
+    width: 100px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+}
+
+::-webkit-file-upload-button:hover {
+    background: #5198d1;
+    color: white;
+}
+.categoria{
+    font-size: 16px;
+    background: white;
+    color: black;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.472);
+    width: 500px;
+    outline: none;
+}
+
+/* CARD */
+
+
+.tituloCrear h1 {
+    font-size: 70px;
+    text-align: center;
+    color: black;
+}
+
+.tarjeta {
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.7);
+    margin: 1.5rem;
+    backdrop-filter: blur(.1rem);
+    background-color: rgb(255, 255, 255);
+    border: .1rem solid rgba(148, 147, 147, 0.3);
+    color: #fff;
+    left: 27%;
+}
+
+.tarjeta button {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid #5198d1;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #202326;
+    background: transparent;
+    border-radius: 30px;
+}
+
+.tarjeta button:hover {
+    background: #256da8;
+    color: white;
+}
+
+.tarejeta button:hover {
+    border: none;
+}
