@@ -27,7 +27,7 @@
                                 <td>{{$file->url}}</td>
                                 <td>
                                     <div class="but">
-                                        <a class="btn btn-sm btn-outline-secondary" href="storage/{{Auth::id()}}/{{$file->url}}"><i class="fas fa-eye"></i>VER</a>
+                                        <a target="_blank" class="btn btn-sm btn-outline-secondary" href="{{route('user.imagenes',$file->id)}}"><i class="fas fa-eye"></i>VER</a>
                                     </div>
                                 </td>
                                 <td>
@@ -38,7 +38,7 @@
                                 </td>
                                 <td>
                                     <div class="but">
-                                        <a class="btn btn-sm btn-outline-warning" href="{{route('dash.descarga', $file->url)}}"><i class="fas fa-download"></i>Descargar</a>
+                                        <a class="btn btn-sm btn-outline-warning" href="{{url('/download',$file->url)}}"><i class="fas fa-download"></i>Descargar</a>
                                     </div>
                                 </td>
                                 <td>

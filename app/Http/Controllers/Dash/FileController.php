@@ -110,11 +110,11 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, File $files ,$id)
+    public function update(Request $request, File $files, $id)
     {
         $files = File::whereId($id)->firstOrFail();
         $files->url = $request->url;
-        $nuevo_nombre= Str::slug($request->url);
+        $nuevo_nombre = Str::slug($request->url);
         $files->url = $nuevo_nombre;
         alert()->warning('Atencion', 'Editado');
         return redirect()->route('dash.show', compact('files'));
@@ -122,7 +122,7 @@ class FileController extends Controller
 
     public function descarga(Request $request, $files)
     {
-        return response()->download(public_path('storage' . '/' . Auth::id() . '/' . $files->url));
+        /* return response()->download(public_path('storage' . '/' . Auth::id() . '/' . $files->url)); */
     }
 
     /**
@@ -131,19 +131,13 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id){
+    public function destroy(Request $request, $id)
+    {
         $files = File::whereId($id)->firstOrFail();
         unlink(public_path('storage' . '/' . Auth::id() . '/' . $files->url));
         $files->delete();
         alert()->warning('Atencion', 'Se ha eliminado el archivo');
         return redirect()->route('dash.show');
     }
-
-    public function imagenes()
-    {
-        /* $files = File::all();
-        return view('user.carpetas.imagenes',compact('files')); */
-        $files = File::whereUserId(Auth::id())->latest()->get();
-        return view('user.carpetas.imagenes', compact('files'));
-    }
+    
 }

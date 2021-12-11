@@ -37,7 +37,7 @@ Route::get('editar/{file}/editar', [FileController::class, 'edit'])->name('dash.
 Route::put('editar/{file}', [FileController::class, 'update'])->name('dash.update');
 
 
-Route::get('/dowload{$file}', [FileController::class, 'descarga'])->name('dash.descarga');
+Route::get('/download{$file}', [FileController::class, 'descarga'])->name('dash.descarga');
 
 
 /* METODO PARA ACTUALIZAR */
@@ -48,5 +48,5 @@ Route::delete('borrar/{file}', [FileController::class, 'destroy'])->name('dash.d
 /* _____________________________________________ */
 Route::get('home', [UserHomeController::class, 'home'])->name('user.home');
 Route::get('documentos', [UserHomeController::class, 'documentos'])->name('user.documentos');
-Route::get('imagen', [FileController::class, 'imagenes'])->name('user.imagenes');
+Route::get('imagen', [UserHomeController::class, 'imagenes'])->name('user.imagenes');
 Route::get('videos', [UserHomeController::class, 'videos'])->name('user.videos');

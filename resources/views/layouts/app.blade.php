@@ -39,7 +39,7 @@
                     <!-- Left Side Of Navbar -->
                     @auth
                     <ul class="navbar-nav  menu">
-                        <a class="nav-link" href="">Docuementos</a>
+                        <a class="nav-link" href="{{ route('user.documentos') }}">Docuementos</a>
                         <a class="nav-link" href="{{ route('user.imagenes') }}">Imagenes</a>
                         <a class="nav-link" href="">Videos</a>
                     </ul>
