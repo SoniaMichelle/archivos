@@ -26,8 +26,6 @@ class HomeController extends Controller
     }
     public function imagenes()
     {
-        /* $files = File::all();
-        return view('user.carpetas.imagenes',compact('files')); */
         $files = File::whereUserId(Auth::id())->latest()->get();
         return view('user.carpetas.imagenes', compact('files'));
     }

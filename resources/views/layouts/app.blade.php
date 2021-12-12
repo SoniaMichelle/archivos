@@ -40,7 +40,7 @@
                     @auth
                     <ul class="navbar-nav  menu">
                         <a class="nav-link" href="{{ route('user.documentos') }}">Docuementos</a>
-                        <a class="nav-link" href="{{ route('user.imagenes') }}">Imagenes</a>
+                        <a class="nav-link" href="{{ route('user.imagenes') }}" onclick="validar_img">Imagenes</a>
                         <a class="nav-link" href="">Videos</a>
                     </ul>
 
@@ -71,7 +71,7 @@
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                   <i class="fas fa-power-off" style="color: red;"></i> Cerrar Sesión
+                                    <i class="fas fa-power-off" style="color: red;"></i> Cerrar Sesión
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

@@ -6,7 +6,7 @@
             <li class="list-group-item active bg-info">Documentos</li>
             @foreach($files as $file)
             <li class="list-group-item">
-                <a class="texto" href="/storage/{{$file->user_id}}/{{$file->url}}">{{$file->url}}</a>
+                <a target="_blank" class="texto" href="/storage/{{$file->user_id}}/{{$file->url}}">{{$file->url}}</a>
             </li>
             @endforeach
         </ul>
