@@ -7,20 +7,6 @@
     <div class="row">
         <div class="col ">
             <h1 class="titulo-lista">MIS ARCHIVOS</h1>
-            <div class="row">
-                <div class="col">
-                    <form action="{{route('dash.show')}}" method="GET">
-                        <div class="form-row">
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="texto">
-                            </div>
-                            <div class="col-auto">
-                                <input type="submit" class="btn btn-primary" value="Buscar">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
             <div class="card lista">
                 <div class="card-body">
                     <table class="table table-hover">

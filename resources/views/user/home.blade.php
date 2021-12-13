@@ -6,7 +6,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col tituloUser">
-            <h1>Bienvenid</h1>
+            <h1>Bienvenido</h1>
         </div>
     </div>
     <div class="row">
