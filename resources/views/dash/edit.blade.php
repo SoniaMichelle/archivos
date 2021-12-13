@@ -13,7 +13,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre_archivo">Nombre del archivo</label>
-                        <input type="text" class="form-control" id="nombre_archivo" name="nombre_archivo" placeholder="Apellido Paterno" value="{{$file->url}}">
+                        <input type="text" class="form-control" id="url" name="url" placeholder="Apellido Paterno" value="{{$file->url}}">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Actualizar</button>

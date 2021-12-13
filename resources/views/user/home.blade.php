@@ -12,28 +12,19 @@
     <div class="row">
         <div class="col">
             <div class="contenidos mt-5">
-                <a href="">
+                <a href="{{ route('dash.show') }}">
                     <div class="card">
-                        <img src="{{ asset('img/a1.jpg') }}" alt="">
+                        <img src="{{ asset('img/a3.jpg') }}" alt="">
                         <div class="info">
-                            <h2>Documentos</h2>
+                            <h2>Mis archivos</h2>
                         </div>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ route('dash.crear') }}">
                     <div class="card">
-                        <img src="{{ asset('img/a1.jpg') }}" alt="">
+                        <img src="{{ asset('img/us2.jpg') }}" alt="">
                         <div class="info">
-                            <h2>Imagenes</h2>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="card">
-                        <img src="{{ asset('img/a1.jpg') }}" alt="">
-                        <div class="info">
-                            <h2>Videos</h2>
+                            <h2>Subir Archivo</h2>
                         </div>
                     </div>
                 </a>

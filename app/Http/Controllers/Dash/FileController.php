@@ -74,7 +74,7 @@ class FileController extends Controller
      */
     public function show()
     {
-        $files = File::whereUserId(Auth::id())->latest()->get();
+        $files = File::whereUserId(Auth::id())->orderBy('id', 'desc')->paginate(4);
         return view('dash.show', compact('files'));
         /* 
         $files = File::orderBy('id', 'desc')->paginate();
@@ -110,20 +110,6 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, File $files, $id)
-    {
-        $files = File::whereId($id)->firstOrFail();
-        $files->url = $request->url;
-        $nuevo_nombre = Str::slug($request->url);
-        $files->url = $nuevo_nombre;
-        alert()->warning('Atencion', 'Editado');
-        return redirect()->route('dash.show', compact('files'));
-    }
-
-    public function descarga(Request $request, $files)
-    {
-        /* return response()->download(public_path('storage' . '/' . Auth::id() . '/' . $files->url)); */
-    }
 
     /**
      * Remove the specified resource from storage.

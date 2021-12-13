@@ -7,6 +7,20 @@
     <div class="row">
         <div class="col ">
             <h1 class="titulo-lista">MIS ARCHIVOS</h1>
+            <div class="row">
+                <div class="col">
+                    <form action="{{route('dash.show')}}" method="GET">
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="texto">
+                            </div>
+                            <div class="col-auto">
+                                <input type="submit" class="btn btn-primary" value="Buscar">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="card lista">
                 <div class="card-body">
                     <table class="table table-hover">
@@ -15,30 +29,24 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Archivo</th>
                                 <th scope="col">Mostrar</th>
-                                <th scope="col">Editar</th>
                                 <th scope="col">Descargar</th>
                                 <th scope="col">Borrar</th>
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach($files as $file)
                             <tr>
                                 <th scope="row">{{$file->id}}</th>
                                 <td>{{$file->url}}</td>
                                 <td>
                                     <div class="but">
-                                        <a target="_blank" class="btn btn-sm btn-outline-secondary" href="storage/{{Auth::id()}}/{{$file->url}}"><i class="fas fa-eye"></i>VER</a>
+                                        <a target="_blank" class="btn btn-sm btn-outline-secondary" href="storage/{{Auth::id()}}/{{$file->url}}"><i class="fas fa-eye"></i></a>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="but">
-                                        <a class="btn btn-sm btn-outline-info" href="{{route('dash.edit', $file->id)}}"><i class="fas fa-marker"></i>ACTUALIZAR</a>
-
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="but">
-                                        <a class="btn btn-sm btn-outline-warning" href="{{url('/download',$file->url)}}"><i class="fas fa-download"></i>Descargar</a>
+                                        <a class="btn btn-sm btn-outline-warning" href="storage/{{Auth::id()}}/{{$file->url}}" download="{{$file->url}}"><i class="fas fa-download"></i></a>
                                     </div>
                                 </td>
                                 <td>
@@ -59,4 +67,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('pagina')
+{{$files->links()}}
 @endsection

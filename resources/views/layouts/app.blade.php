@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
@@ -29,7 +30,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <h4>Gestor de Archios</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -39,11 +40,8 @@
                     <!-- Left Side Of Navbar -->
                     @auth
                     <ul class="navbar-nav  menu">
-                        <a class="nav-link" href="{{ route('user.documentos') }}">Docuementos</a>
-                        <a class="nav-link" href="{{ route('user.imagenes') }}" onclick="validar_img">Imagenes</a>
-                        <a class="nav-link" href="">Videos</a>
+                        <a class="nav-link" href="{{ route('dash.show') }}">Mis archivos</a>
                     </ul>
-
                     @endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto menu">
@@ -89,12 +87,20 @@
             @yield('content')
             @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col mt-3">
+                    @yield('pagina')
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
     @yield('js')
 </body>
 

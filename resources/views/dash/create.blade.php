@@ -15,16 +15,11 @@
                 <div class="card-body">
                     <form action="{{route('dash.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group mt-3">
-                            <select id="inputState" class="form-control categoria">
-                                <option selected>Selecciona una carpeta</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                        <div class="form-group mt-4">
+                       
+                        <div class="form-group mt-4 text-center">
                             <input type="file" class="upload-box" name="file[]" multiple class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                             <button type="submit" class="btn">Subir archivo</button>
                         </div>
                     </form>

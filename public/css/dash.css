@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
 
 a {
     text-decoration: none;
@@ -70,6 +71,7 @@ a {
     font-size: 70px;
     text-align: center;
     color: black;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .tarjeta {
