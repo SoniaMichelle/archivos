@@ -40,6 +40,3 @@ Route::delete('borrar/{file}', [FileController::class, 'destroy'])->name('dash.d
 
 /* _____________________________________________ */
 Route::get('home', [UserHomeController::class, 'home'])->name('user.home');
-Route::get('documentos', [UserHomeController::class, 'documentos'])->name('user.documentos');
-Route::get('imagen', [UserHomeController::class, 'imagenes'])->name('user.imagenes');
-Route::get('videos', [UserHomeController::class, 'videos'])->name('user.videos');

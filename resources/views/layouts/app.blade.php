@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
 
 
@@ -37,7 +37,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <!-- Solo semuestra si el usuario ha iniciado secion -->
                     @auth
                     <ul class="navbar-nav  menu">
                         <a class="nav-link" href="{{ route('dash.show') }}">Mis archivos</a>

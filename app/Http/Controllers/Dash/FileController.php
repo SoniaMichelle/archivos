@@ -74,11 +74,9 @@ class FileController extends Controller
      */
     public function show()
     {
+        /* Seleccionamos la tabla y le pediomos que solo nos muestre lo que el usuario ha subido */
         $files = File::whereUserId(Auth::id())->orderBy('id', 'desc')->paginate(4);
         return view('dash.show', compact('files'));
-        /* 
-        $files = File::orderBy('id', 'desc')->paginate();
-        return view('dash.show', compact('files')); */
     }
     public function mostrar($id)
     {
